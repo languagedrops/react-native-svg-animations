@@ -27,6 +27,7 @@ class OffsetSVGPath extends Component {
     fill: PropTypes.string,
     loop: PropTypes.bool,
     lineCap: PropTypes.string,
+    lineJoin: PropTypes.string,
   };
 
   static defaultProps = {
@@ -41,6 +42,7 @@ class OffsetSVGPath extends Component {
     loop: true,
     lineCap: "butt",
     offset: 0,
+    lineJoin: "miter"
   };
 
   static getDerivedStateFromProps(newProps, prevState) {
@@ -72,6 +74,7 @@ class OffsetSVGPath extends Component {
       strokeWidth,
       lineCap,
       offset,
+      lineJoin,
     } = this.props
     const { length } = this.state
     const dashLength = length + strokeWidth
@@ -89,6 +92,7 @@ class OffsetSVGPath extends Component {
           fill={fill}
           d={d}
           strokeLinecap={lineCap}
+          strokeLinejoin={ lineJoin }
         />
       </Svg>
     );

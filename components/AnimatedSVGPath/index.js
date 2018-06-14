@@ -30,6 +30,7 @@ class AnimatedSVGPath extends Component {
     shouldReload: PropTypes.number,
     animationLimit: PropTypes.number,
     animationDuration: PropTypes.number,
+    lineJoin: PropTypes.string,
   };
 
   static defaultProps = {
@@ -46,6 +47,7 @@ class AnimatedSVGPath extends Component {
     shouldReload: 0,
     animationLimit: 0,
     animationDuration: 1000,
+    lineJoin: "miter"
   };
 
   static getDerivedStateFromProps(newProps, prevState) {
@@ -124,6 +126,7 @@ class AnimatedSVGPath extends Component {
       strokeColor,
       strokeWidth,
       lineCap,
+      lineJoin,
     } = this.props;
     const { dashLength, strokeDashOffset } = this.state
     return (
@@ -140,6 +143,7 @@ class AnimatedSVGPath extends Component {
           fill={fill}
           d={d}
           strokeLinecap={lineCap}
+          strokeLinejoin={ lineJoin }
         />
       </Svg>
     );
