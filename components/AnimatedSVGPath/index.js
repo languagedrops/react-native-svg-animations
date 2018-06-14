@@ -28,6 +28,8 @@ class AnimatedSVGPath extends Component {
     loop: PropTypes.bool,
     lineCap: PropTypes.string,
     shouldReload: PropTypes.number,
+    animationLimit: PropTypes.number,
+    animationDuration: PropTypes.number,
   };
 
   static defaultProps = {
@@ -42,6 +44,8 @@ class AnimatedSVGPath extends Component {
     loop: true,
     lineCap: "butt",
     shouldReload: 0,
+    animationLimit: 0,
+    animationDuration: 1000,
   };
 
   static getDerivedStateFromProps(newProps, prevState) {
@@ -73,12 +77,18 @@ class AnimatedSVGPath extends Component {
       duration,
       loop,
       velocity,
+      animationLimit,
     } = this.props;
     this.isAnimating = true
     this.state.strokeDashOffset.setValue(this.state.dashLength);
     let animationDuration = duration
     if (velocity) {
       animationDuration = velocity * this.state.dashLength
+    }
+    let endValue = 0
+    if (animationLimit !== 0) {
+      endValue = this.state.dashLength * (1 - animationLimit)
+      animationDuration = this.props.animationDuration
     }
     Animated.sequence([
       Animated.delay(delay),
