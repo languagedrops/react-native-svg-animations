@@ -93,7 +93,7 @@ class AnimatedSVGPath extends Component {
     Animated.sequence([
       Animated.delay(delay),
       Animated.timing(this.state.strokeDashOffset, {
-        toValue: 0,
+        toValue: animationLimit,
         duration: animationDuration,
       })
     ]).start(() => {
