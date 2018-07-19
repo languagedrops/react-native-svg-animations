@@ -9,9 +9,10 @@ import {
 import {
   svgPathProperties,
 } from 'svg-path-properties';
-
+import * as Device from 'react-native-device-info'
 import Path from '../AnimatedSVG';
 
+const isAndriod7 = Device.getAPILevel() > 23 && Device.getAPILevel() < 26
 const { height, width } = Dimensions.get('window');
 class OffsetSVGPath extends Component {
   static propTypes = {
@@ -78,14 +79,16 @@ class OffsetSVGPath extends Component {
     } = this.props
     const { length } = this.state
     const dashLength = length + strokeWidth
+    const varDashLength = isAndriod7 ? (dashLength - strokeWidth) : dashLength
+    const varDashOffset = isAndriod7 ? (dashLength - (strokeWidth / 1.1)) : dashLength
     return (
       <Svg
         height={(height * scale) + 5}
         width={(width * scale) + 5}
       >
         <Path
-          strokeDasharray={[dashLength, dashLength]}
-          strokeDashoffset={ dashLength - offset * length}
+          strokeDasharray={[varDashLength, dashLength]}
+          strokeDashoffset={ varDashOffset - offset * length}
           strokeWidth={strokeWidth}
           stroke={strokeColor}
           scale={scale}
