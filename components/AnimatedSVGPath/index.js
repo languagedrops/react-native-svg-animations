@@ -5,6 +5,7 @@ import Svg from 'react-native-svg';
 import {
   Animated,
   Dimensions,
+  Platform,
 } from 'react-native';
 import {
   svgPathProperties,
@@ -13,7 +14,7 @@ import * as Device from 'react-native-device-info'
 
 import Path from '../AnimatedSVG';
 
-
+const isAndroid = Platform.OS === 'android'
 const isAndriod7 = Device.getAPILevel() > 23 && Device.getAPILevel() < 26
 const { height, width } = Dimensions.get('window');
 class AnimatedSVGPath extends Component {
@@ -131,7 +132,7 @@ class AnimatedSVGPath extends Component {
       lineJoin,
     } = this.props;
     const { dashLength, strokeDashOffset } = this.state
-    const varDashLength = isAndriod7 ? (dashLength - strokeWidth) : dashLength
+    const varDashLength = (isAndriod7 && isAndroid) ? (dashLength - strokeWidth) : dashLength
     return (
       <Svg
         height={(height * scale) + 5}
