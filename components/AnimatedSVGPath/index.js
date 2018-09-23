@@ -10,7 +10,7 @@ import {
 import {
   svgPathProperties,
 } from 'svg-path-properties';
-import Device from 'react-native-device-info'
+import Device from 'react-native-simple-device-info'
 
 import Path from '../AnimatedSVG';
 
