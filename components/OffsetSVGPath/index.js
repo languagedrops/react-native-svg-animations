@@ -10,7 +10,7 @@ import {
 import {
   svgPathProperties,
 } from 'svg-path-properties';
-import * as Device from 'react-native-device-info'
+import Device from 'react-native-device-info'
 import Path from '../AnimatedSVG';
 const isAndroid = Platform.OS === 'android'
 
