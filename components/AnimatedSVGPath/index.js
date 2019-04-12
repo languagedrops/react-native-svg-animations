@@ -139,7 +139,7 @@ class AnimatedSVGPath extends Component {
         width={(width * scale) + 5}
       >
         <Path
-          strokeDasharray={[varDashLength, dashLength]}
+          strokeDasharray={[varDashLength.toString(), dashLength.toString()]}
           strokeDashoffset={strokeDashOffset}
           strokeWidth={strokeWidth}
           stroke={strokeColor}
