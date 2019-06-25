@@ -80,7 +80,7 @@ class OffsetSVGPath extends Component {
       lineJoin,
     } = this.props
     const { length } = this.state
-    const dashLength = length + strokeWidth
+    const dashLength = length + strokeWidth * 2
     const varDashLength = (isAndriod7 && isAndroid) ? (dashLength - strokeWidth) : dashLength
     const varDashOffset = (isAndriod7 && isAndroid) ? (dashLength - (strokeWidth / 1.1)) : dashLength
     return (
