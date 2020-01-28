@@ -29,6 +29,6 @@
     "svg-path-properties": "^0.4.4",
     "react": "^16.8.3",
     "react-native": "^0.59.4",
-    "react-native-simple-device-info": "^0.23.3"
+    "react-native-simple-device-info": "^0.24.2"
   }
 }
