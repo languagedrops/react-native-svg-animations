@@ -10,12 +10,12 @@ import {
 import {
   svgPathProperties,
 } from 'svg-path-properties';
-import Device from 'react-native-simple-device-info'
+import Device from 'react-native-device-info'
 
 import Path from '../AnimatedSVG';
 
 const isAndroid = Platform.OS === 'android'
-const isAndriod7 = Device.getAPILevel() > 23 && Device.getAPILevel() < 26
+const isAndriod7 = Device.getApiLevelSync() > 23 && Device.getApiLevelSync() < 26
 const { height, width } = Dimensions.get('window');
 class AnimatedSVGPath extends Component {
   static propTypes = {
