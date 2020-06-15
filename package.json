@@ -1,6 +1,6 @@
 {
   "name": "react-native-svg-animations",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "SVG Animations wrapper for react-native.",
   "main": "index.js",
   "directories": {
@@ -25,10 +25,10 @@
   },
   "homepage": "https://github.com/73R3WY/react-native-svg-animations",
   "peerDependencies": {
-    "react-native-svg": "^12.1.0",
-    "svg-path-properties": "^0.4.4",
     "react": "^16.11.0",
     "react-native": "^0.62.2",
-    "react-native-device-info": "^5.6.0"
+    "react-native-device-info": "^5.6.0",
+    "react-native-svg": "^12.1.0",
+    "svg-path-properties": "^0.4.4"
   }
 }
